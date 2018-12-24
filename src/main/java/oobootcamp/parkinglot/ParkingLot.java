@@ -2,6 +2,7 @@ package oobootcamp.parkinglot;
 
 import java.util.HashMap;
 import java.util.Map;
+import oobootcamp.parkinglot.exception.NoAvailableParkingSlotException;
 
 public class ParkingLot {
 
