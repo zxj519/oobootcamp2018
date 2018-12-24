@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'com.tw.wh'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+
+    testRuntime 'com.tngtech.archunit:archunit-junit5-engine:0.9.2'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+}
+
+test {
+    testLogging.showStandardStreams = false
+    useJUnitPlatform()
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    reports {
+        html.enabled = true
+    }
+}
