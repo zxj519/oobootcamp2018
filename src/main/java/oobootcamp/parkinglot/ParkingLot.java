@@ -4,17 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 import oobootcamp.parkinglot.exception.NoAvailableParkingSlotException;
 
-public class ParkingLot {
+class ParkingLot {
 
   private int numberOfSlot;
   private Map<Ticket, Car> parkedCars = new HashMap<>();
 
-  public ParkingLot(int numberOfSlot) {
+  ParkingLot(int numberOfSlot) {
     this.numberOfSlot = numberOfSlot;
   }
 
-  public Ticket parkCar(Car car) {
-    if(numberOfSlot > parkedCars.size()) {
+  Ticket parkCar(Car car) {
+    if(this.hasSlot()) {
       Ticket ticket = new Ticket();
       parkedCars.put(ticket, car);
       return ticket;
@@ -22,7 +22,11 @@ public class ParkingLot {
     throw new NoAvailableParkingSlotException();
   }
 
-  public Car pickCar(Ticket ticket) {
+  Car pickCar(Ticket ticket) {
     return parkedCars.remove(ticket);
+  }
+
+  boolean hasSlot() {
+    return numberOfSlot > parkedCars.size();
   }
 }

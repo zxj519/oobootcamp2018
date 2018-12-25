@@ -1,14 +1,18 @@
 package oobootcamp.parkinglot;
 
-public class ParkingBoy {
+import java.util.ArrayList;
+import java.util.List;
 
-  private ParkingLot parkingLot;
+class ParkingBoy {
 
-  public Ticket parkCar(Car car) {
-    return parkingLot.parkCar(car);
+  private List<ParkingLot> parkingLots = new ArrayList<>();
+
+  Ticket parkCar(Car car) {
+    return parkingLots.stream().filter(ParkingLot::hasSlot)
+        .findAny().get().parkCar(car);
   }
 
-  public void assignParkingLot(ParkingLot parkingLot) {
-    this.parkingLot = parkingLot;
+  void assignParkingLot(ParkingLot parkingLot) {
+    this.parkingLots.add(parkingLot);
   }
 }
