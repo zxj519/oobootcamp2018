@@ -18,4 +18,34 @@ Feature: 停车场
     When: 凭票取车
     Then: 成功取出我的车
 
+Feature: 停车小弟
+  Scenario: 小弟停车
+    Given: 有两个停车场
+    And: 第一个停车场有停车位
+    When: 小弟停车
+    Then: 成功将车辆停到第一个停车场
+    
+    Given: 有两个停车场
+    And: 第一个停车场满了
+    And: 第二个停车场有停车位
+    When: 小弟停车
+    Then: 成功将车辆停到第二停车场
+    
+    Given: 有两个停车场
+    And: 两个停车场都满了
+    When: 小弟停车
+    Then: 停车失败
+  
+  Scenario: 小弟取车
+    Given: 有2个停车场
+    And: 有一辆车停在第一个停车场
+    When: 小弟取车
+    Then: 成功取车
+    
+    Given: 有2个停车场
+    And: 有一辆车停在第二个停车场
+    When: 小弟取车
+    Then: 成功取车
+   
+
 ```
