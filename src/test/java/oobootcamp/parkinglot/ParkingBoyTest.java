@@ -6,13 +6,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.stream.IntStream;
 import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ParkingBoyTest {
 
+  private ParkingBoy boy;
+
+  @BeforeEach
+  void setUp() {
+    boy = new ParkingBoy();
+  }
+
   @Test
   void should_get_ticket_when_parking_boy_park_car_given_a_available_parking_lot() {
-    ParkingBoy boy = new ParkingBoy();
     ParkingLot parkingLot = new ParkingLot(1);
     boy.assignParkingLot(parkingLot);
     Car theCar = new Car();
@@ -23,7 +30,6 @@ class ParkingBoyTest {
 
   @Test
   void should_get_ticket_when_parking_boy_park_car_given_two_parking_lots_and_one_is_full() {
-    ParkingBoy boy = new ParkingBoy();
     ParkingLot fullParkingLot = new ParkingLot(1);
     ParkingLot parkingLot = new ParkingLot(1);
     boy.assignParkingLot(fullParkingLot);
@@ -36,7 +42,6 @@ class ParkingBoyTest {
 
   @Test
   void should_get_no_enough_space_exception_when_parking_boy_park_car_given_all_parking_lots_are_full() {
-    ParkingBoy boy = new ParkingBoy();
     IntStream.range(0, 2).forEach(number -> {
       ParkingLot fullParkingLot = new ParkingLot(1);
       boy.assignParkingLot(fullParkingLot);
