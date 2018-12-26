@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import oobootcamp.parkinglot.exception.NoAvailableParkingSlotException;
+import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 import org.junit.jupiter.api.Test;
 
 class ParkingLotTest {
@@ -22,7 +22,7 @@ class ParkingLotTest {
   void shouldParkMyCarFailedGivenNotAvailableParkingLot() {
     ParkingLot parkingLot = new ParkingLot(1);
     parkingLot.parkCar(new Car());
-    assertThrows(NoAvailableParkingSlotException.class, () -> parkingLot.parkCar(new Car()));
+    assertThrows(NoEnoughSpaceException.class, () -> parkingLot.parkCar(new Car()));
   }
 
   @Test
@@ -50,7 +50,7 @@ class ParkingLotTest {
     Car aCar = new Car();
     Ticket aTicket = parkingLot.parkCar(aCar);
     assertAll("Release parking slot", () -> {
-      assertThrows(NoAvailableParkingSlotException.class, () -> parkingLot.parkCar(new Car()));
+      assertThrows(NoEnoughSpaceException.class, () -> parkingLot.parkCar(new Car()));
       parkingLot.pickCar(aTicket);
       assertNotNull(parkingLot.parkCar(new Car()));
     });

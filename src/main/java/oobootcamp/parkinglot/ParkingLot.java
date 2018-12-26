@@ -2,7 +2,7 @@ package oobootcamp.parkinglot;
 
 import java.util.HashMap;
 import java.util.Map;
-import oobootcamp.parkinglot.exception.NoAvailableParkingSlotException;
+import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 
 class ParkingLot {
 
@@ -19,7 +19,7 @@ class ParkingLot {
       parkedCars.put(ticket, car);
       return ticket;
     }
-    throw new NoAvailableParkingSlotException();
+    throw new NoEnoughSpaceException();
   }
 
   Car pickCar(Ticket ticket) {
