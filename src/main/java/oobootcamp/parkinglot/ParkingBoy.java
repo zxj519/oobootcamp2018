@@ -2,6 +2,7 @@ package oobootcamp.parkinglot;
 
 import java.util.ArrayList;
 import java.util.List;
+import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 
 class ParkingBoy {
 
@@ -9,7 +10,7 @@ class ParkingBoy {
 
   Ticket parkCar(Car car) {
     return parkingLots.stream().filter(ParkingLot::hasSlot)
-        .findAny().get().parkCar(car);
+        .findAny().orElseThrow(NoEnoughSpaceException::new).parkCar(car);
   }
 
   void assignParkingLot(ParkingLot parkingLot) {
