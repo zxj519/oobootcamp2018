@@ -20,16 +20,15 @@ Feature: 停车场
 
 Feature: 停车小弟
   Scenario: 小弟停车
-    Given: 有两个停车场
-    And: 第一个停车场有停车位
+    Given: 有个停车场
+    And: 停车场有停车位
     When: 小弟停车
-    Then: 成功将车辆停到第一个停车场
+    Then: 成功将车辆停到停车场
     
-    Given: 有两个停车场
-    And: 第一个停车场满了
-    And: 第二个停车场有停车位
+    Given: 有两个只有一个停车位的停车场
+    And: 有两辆需要停放的车
     When: 小弟停车
-    Then: 成功将车辆停到第二停车场
+    Then: 能成功将两辆车停到停车场
     
     Given: 有两个停车场
     And: 两个停车场都满了

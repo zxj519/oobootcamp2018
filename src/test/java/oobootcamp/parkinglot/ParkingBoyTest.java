@@ -25,9 +25,9 @@ class ParkingBoyTest {
     ParkingLot parkingLot = new ParkingLot(1);
     boy.assignParkingLot(fullParkingLot);
     boy.assignParkingLot(parkingLot);
-    Car carA = new Car();
-    fullParkingLot.parkCar(carA);
-    Ticket ticket = boy.parkCar(new Car());
+    Car myCar = new Car();
+    boy.parkCar(new Car());
+    Ticket ticket = boy.parkCar(myCar);
     assertNotNull(ticket);
   }
 }
