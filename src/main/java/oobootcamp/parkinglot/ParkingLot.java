@@ -29,4 +29,8 @@ class ParkingLot {
   boolean hasSlot() {
     return numberOfSlot > parkedCars.size();
   }
+
+  boolean hasSpecificCar(Ticket ticket) {
+    return parkedCars.containsKey(ticket);
+  }
 }

@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.stream.IntStream;
+import oobootcamp.parkinglot.exception.InvalidTicketException;
 import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,5 +49,23 @@ class ParkingBoyTest {
       boy.parkCar(new Car());
     });
     assertThrows(NoEnoughSpaceException.class, () -> boy.parkCar(new Car()));
+  }
+
+  @Test
+  void should_pick_the_car_when_parking_boy_pick_a_parked_car() {
+    ParkingLot fullParkingLot = new ParkingLot(1);
+    boy.assignParkingLot(fullParkingLot);
+    Car theCar = new Car();
+    Ticket ticket = boy.parkCar(theCar);
+    assertSame(theCar, boy.pickCar(ticket));
+  }
+
+  @Test
+  void should_get_invalid_ticket_exception_when_parking_boy_pick_a_car_given_invalid_ticket() {
+    ParkingLot fullParkingLot = new ParkingLot(1);
+    boy.assignParkingLot(fullParkingLot);
+    Car theCar = new Car();
+    boy.parkCar(theCar);
+    assertThrows(InvalidTicketException.class, () -> boy.pickCar(new Ticket()));
   }
 }
