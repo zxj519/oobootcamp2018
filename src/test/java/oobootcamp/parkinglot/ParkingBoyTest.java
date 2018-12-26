@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 import oobootcamp.parkinglot.exception.InvalidTicketException;
 import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
@@ -58,6 +60,19 @@ class ParkingBoyTest {
     Car theCar = new Car();
     Ticket ticket = boy.parkCar(theCar);
     assertSame(theCar, boy.pickCar(ticket));
+  }
+
+  @Test
+  void should_pick_the_right_car_when_parking_boy_pick_parked_cars_given_more_than_one_car_parked() {
+    boy.assignParkingLot(new ParkingLot(1));
+    boy.assignParkingLot(new ParkingLot(1));
+    Car carA = new Car();
+    Car carB = new Car();
+    Ticket ticket1 = boy.parkCar(carA);
+    Ticket ticket2 = boy.parkCar(carB);
+
+    assertSame(carA, boy.pickCar(ticket1));
+    assertSame(carB, boy.pickCar(ticket2));
   }
 
   @Test
