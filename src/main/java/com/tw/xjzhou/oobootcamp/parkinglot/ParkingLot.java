@@ -1,8 +1,8 @@
-package oobootcamp.parkinglot;
+package com.tw.xjzhou.oobootcamp.parkinglot;
 
+import com.tw.xjzhou.oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 import java.util.HashMap;
 import java.util.Map;
-import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 
 class ParkingLot {
 

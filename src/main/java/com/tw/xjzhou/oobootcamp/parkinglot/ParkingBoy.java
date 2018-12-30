@@ -1,7 +1,7 @@
-package oobootcamp.parkinglot;
+package com.tw.xjzhou.oobootcamp.parkinglot;
 
-import oobootcamp.parkinglot.exception.InvalidTicketException;
-import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
+import com.tw.xjzhou.oobootcamp.parkinglot.exception.InvalidTicketException;
+import com.tw.xjzhou.oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 
 class ParkingBoy extends SuperBoy{
 

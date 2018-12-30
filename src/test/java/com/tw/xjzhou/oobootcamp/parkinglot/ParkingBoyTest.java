@@ -1,12 +1,12 @@
-package oobootcamp.parkinglot;
+package com.tw.xjzhou.oobootcamp.parkinglot;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.stream.IntStream;
-import oobootcamp.parkinglot.exception.InvalidTicketException;
-import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
+import com.tw.xjzhou.oobootcamp.parkinglot.exception.InvalidTicketException;
+import com.tw.xjzhou.oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package oobootcamp.parkinglot;
+package com.tw.xjzhou.oobootcamp.parkinglot;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import oobootcamp.parkinglot.exception.NoEnoughSpaceException;
+import com.tw.xjzhou.oobootcamp.parkinglot.exception.NoEnoughSpaceException;
 import org.junit.jupiter.api.Test;
 
 class ParkingLotTest {

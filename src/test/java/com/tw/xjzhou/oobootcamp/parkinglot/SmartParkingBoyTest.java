@@ -1,4 +1,4 @@
-package oobootcamp.parkinglot;
+package com.tw.xjzhou.oobootcamp.parkinglot;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
