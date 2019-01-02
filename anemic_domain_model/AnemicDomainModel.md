@@ -43,16 +43,7 @@ public class InspectionService {
     inspectionRepository.save(inspection);
   }
   
-  public void addAreaReview(AddAreaReivewCommand command) {
-    Inspection inspection = inspectionRepository.findOneOrThrow(command.inspectionId);
-    AreaReview review = new AreaReview(
-        command.inspectionId,
-        command.areaId,
-        command.comment);
-    areaReviewRepository.save(review);
-    inspection.startInspection();
-    inspectionRepository.save(inspection);
-  }
+  
   
   //...
 }
@@ -96,6 +87,17 @@ public class InspectionService {
     inspection.markAsInspected();
     inspectionRepository.save(inspection);
   }
+  
+  public void addAreaReview(AddAreaReivewCommand command) {
+      Inspection inspection = inspectionRepository.findOneOrThrow(command.inspectionId);
+      AreaReview review = new AreaReview(
+          command.inspectionId,
+          command.areaId,
+          command.comment);
+      areaReviewRepository.save(review);
+      inspection.startInspection();
+      inspectionRepository.save(inspection);
+    }
   //...
 }
 ```
